@@ -9,6 +9,7 @@ from . models import Lead
 #     age=forms.IntegerField(min_value=0)
 
 
+
 class LeadModelForm(forms.ModelForm):
     class Meta:
         model = Lead
