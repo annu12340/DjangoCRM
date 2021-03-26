@@ -4,6 +4,9 @@ from . forms import LeadModelForm
 
 # Create your views here.
 
+def landing_page(request):
+    return render(request,"landing.html")
+
 def lead_list(request):
     leads=Lead.objects.all()
     return render(request,'leads/lead_list.html',{'lead_data':leads})
@@ -35,7 +38,7 @@ def lead_create(request):
             #     agent=agent
             # )
 
-            return redirect("/leads")
+            return redirect("/leads/all")
 
     return render(request,'leads/lead_create.html',{"forms":form})
 
@@ -46,7 +49,7 @@ def lead_update(request, pk):
         form = LeadModelForm(request.POST, instance=lead)
         if form.is_valid():
             form.save()
-            return redirect("/leads")
+            return redirect("/leads/all")
     context = {
         "form": form,
         "lead": lead
@@ -56,4 +59,4 @@ def lead_update(request, pk):
 def lead_delete(request, pk):
     lead = Lead.objects.get(id=pk)
     lead.delete()
-    return redirect("/leads")
+    return redirect("/leads/all")

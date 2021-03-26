@@ -5,24 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DJCRM</title>
-    <style>
-        .lead {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 6px;
-            padding-right: 6px;
-            margin-top: 10px;
-            background-color: #f6f6f6;
-            width: 100%;
-        }
-    </style>
+   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-HEADER
-    {% block content %}
-    {% endblock content %}
-FOOTER
 
+  <div class="max-w-7xl mx-auto">
+        {% include 'navbar.html' %}
+        {% block content %}
+        {% endblock content %}
+    </div>
     {% include "scripts.html" %}
+
+<footer class="footer bg-white relative pt-1 border-b-2 border-indigo-700">
+
+    <div class="container mx-auto px-6">
+        <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-indigo-700 font-bold mb-2">
+                    © 2021 | DjangoCRM
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
