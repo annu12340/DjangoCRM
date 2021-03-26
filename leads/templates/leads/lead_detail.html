@@ -18,13 +18,14 @@
 </head>
 
 <body>
-    <a href="/leads/create/">Create a new lead</a>
+    <a href="/leads">Go back to leads</a>
     <hr />
-    <h1>This is all of our leads</h1>
-    {% for lead in lead_data %}
-        <div class="lead">
-            <a href="/leads/{{ lead.pk }}/">{{ lead.first_name }} {{ lead.last_name }}</a>. Age: {{ lead.age }}
-        </div>
-    {% endfor %}
+    <h1>This is the details of {{ lead_data.first_name }}</h1>
+    <p>This persons age: {{ lead_data.age }}</p>
+    <p>The agent responsible for this lead is : {{ lead_data.agent }} </p>
+ <hr />
+    <a href="/leads/{{ lead_data.pk }}/update/">Update</a>
+    <a href="/leads/{{ lead_data.pk }}/delete/">Delete</a>
+<!--    OR      -->
 </body>
 </html>
